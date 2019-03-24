@@ -1,15 +1,35 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  { path: '', redirectTo: 'bill', pathMatch: 'full' },
+  { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
+  {
+    path: 'bill',
+    loadChildren: './bill/bill.module#BillPageModule',
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'history',
+    loadChildren: './history/history.module#HistoryPageModule',
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'planning',
+    loadChildren: './planning/planning.module#PlanningPageModule',
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'records',
+    loadChildren: './records/records.module#RecordsPageModule',
+    canLoad: [AuthGuard]
+  }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
