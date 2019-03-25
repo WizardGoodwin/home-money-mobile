@@ -25,7 +25,7 @@ const routes: Routes = [
     path: 'records',
     loadChildren: './records/records.module#RecordsPageModule',
     canLoad: [AuthGuard]
-  }
+  },
 ];
 
 @NgModule({
