@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './shared/services/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'bill', pathMatch: 'full' },
@@ -26,6 +26,9 @@ const routes: Routes = [
     loadChildren: './records/records.module#RecordsPageModule',
     canLoad: [AuthGuard]
   },
+  { path: 'login', loadChildren: './auth/login/login.module#LoginPageModule' },
+  { path: 'signup', loadChildren: './auth/signup/signup.module#SignupPageModule' },
+
 ];
 
 @NgModule({
