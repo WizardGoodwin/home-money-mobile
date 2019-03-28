@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { User } from '../../shared/models/user.model';
+import { UsersService } from '../../shared/services/users.service';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -10,7 +13,10 @@ import { Router } from '@angular/router';
 export class SignupPage implements OnInit {
   form: FormGroup;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private usersService: UsersService
+  ) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -32,7 +38,12 @@ export class SignupPage implements OnInit {
   }
 
   onSubmit() {
-    const formData = this.form.value;
-    console.log(formData);
+    const { email, password, name } = this.form.value;
+    const user = new User(email, password, name);
+
+    this.usersService.createNewUser(user)
+      .subscribe(() => {
+        this.router.navigate(['/login']);
+      });
   }
 }

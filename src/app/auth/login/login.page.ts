@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { User } from '../../shared/models/user.model';
+import { UsersService } from '../../shared/services/users.service';
+import { AuthService } from '../../shared/services/auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -10,7 +14,11 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
   form: FormGroup;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private usersService: UsersService
+  ) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -26,6 +34,26 @@ export class LoginPage implements OnInit {
 
   onSubmit() {
     const formData = this.form.value;
-    console.log(formData);
+
+    this.usersService.getUserByEmail(formData.email)
+      .subscribe((user: User) => {
+        if (user) {
+          if (user.password === formData.password) {
+            window.localStorage.setItem('user', JSON.stringify(user));
+            this.authService.login();
+            this.router.navigate(['/bill']);
+          } else {
+            // this.showMessage({
+            //   text: 'Пароль не верный',
+            //   type: 'danger'
+            // });
+          }
+        } else {
+          // this.showMessage({
+          //   text: 'такого пользователя не существует',
+          //   type: 'danger'
+          // });
+        }
+      });
   }
 }
