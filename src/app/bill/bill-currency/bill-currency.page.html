@@ -5,8 +5,8 @@
     </ion-buttons>
     <ion-title>Currency</ion-title>
     <ion-buttons slot="primary">
-      <ion-button>
-        <ion-icon name="refresh" slot="icon-only"></ion-icon>
+      <ion-button (click)="onRefresh()">
+        <ion-icon name="refresh" slot="icon-only" ></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -15,25 +15,38 @@
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-col>
-        <h3><ion-text color="primary">Currency</ion-text></h3>
-      </ion-col>
-      <ion-col>
-        <h3><ion-text color="primary">Rate</ion-text></h3>
-      </ion-col>
-      <ion-col>
-        <h3><ion-text color="primary">Date</ion-text></h3>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <p>EUR</p>
-      </ion-col>
-      <ion-col>
-        <p>1</p>
-      </ion-col>
-      <ion-col>
-        <p>24.03.2019</p>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-row>
+          <ion-col>
+            <h3><ion-text color="primary">Currency</ion-text></h3>
+          </ion-col>
+          <ion-col>
+            <h3><ion-text color="primary">Rate</ion-text></h3>
+          </ion-col>
+          <ion-col>
+            <h3><ion-text color="primary">Date</ion-text></h3>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="!isLoaded" justify-content-center padding-top>
+          <app-loader ></app-loader>
+        </ion-row>
+
+        <ion-row *ngIf="isLoaded">
+          <ion-col>
+            <ion-row *ngFor="let c of currencies">
+              <ion-col>
+                <p>{{ c }}</p>
+              </ion-col>
+              <ion-col>
+                <p>{{ currency.rates[c] | number:'1.2' }}</p>
+              </ion-col>
+              <ion-col>
+                <p>{{ currency.date  | appMoment:'YYYY-MM-DD'}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>

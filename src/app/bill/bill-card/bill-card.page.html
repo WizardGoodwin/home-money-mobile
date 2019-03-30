@@ -10,19 +10,19 @@
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col size-sm="6" offset-sm="3">
         <ion-list lines="none">
-          <ion-item>
-            <ion-icon name="logo-usd" slot="start" color="primary"></ion-icon>
-            <h3 margin-start>73,134.459</h3>
+          <ion-item justify-content-center>
+            <ion-icon name="logo-euro" slot="start" color="primary"></ion-icon>
+            <h3 class="bill-value">{{ euro | number:'1.2-2'}}</h3>
           </ion-item>
           <ion-item>
-            <ion-icon name="logo-euro" slot="start" color="primary"></ion-icon>
-            <h3 margin-start>73,134.459</h3>
+            <ion-icon name="logo-usd" slot="start" color="primary"></ion-icon>
+            <h3 class="bill-value">{{ dollar | number:'1.2-2' }}</h3>
           </ion-item>
           <ion-item>
             <ion-icon name="logo-yen" slot="start" color="primary"></ion-icon>
-            <h3 margin-start>73,134.459</h3>
+            <h3 class="bill-value">{{ yen | number:'1.2-2' }}</h3>
           </ion-item>
         </ion-list>
       </ion-col>

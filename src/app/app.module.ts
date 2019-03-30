@@ -12,6 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { UsersService } from './shared/services/users.service';
 import { AuthGuard } from './shared/services/auth.guard';
 import { AuthService } from './shared/services/auth.service';
+import { BillService } from './shared/services/bill.service';
+import { CategoriesService } from './shared/services/categories.service';
+import { EventsService } from './shared/services/events.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +26,9 @@ import { AuthService } from './shared/services/auth.service';
     AuthGuard,
     AuthService,
     UsersService,
+    BillService,
+    CategoriesService,
+    EventsService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
