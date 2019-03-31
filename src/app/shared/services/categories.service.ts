@@ -21,11 +21,15 @@ export class CategoriesService extends BaseApi {
     return this.get('categories');
   }
 
+  getCategoryById(id: number): Observable<Category> {
+    return this.get(`categories/${id}`);
+  }
+
   updateCategory(category: Category): Observable<Category> {
     return this.put(`categories/${category.id}`, category);
   }
 
-  getCategoryBtId(id: number): Observable<Category> {
-    return this.get(`categories/${id}`);
+  deleteCategory(categorId: number): Observable<any> {
+    return this.delete(`categories/${categorId}`);
   }
 }

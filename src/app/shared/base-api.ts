@@ -27,4 +27,9 @@ export class BaseApi {
     return this.http.put(this.getUrl(url), data)
       .pipe(map(response => response));
   }
+
+  public delete(url: string = ''): Observable<any> {
+    return this.http.delete(this.getUrl(url))
+      .pipe(map(response => response));
+  }
 }

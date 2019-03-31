@@ -24,7 +24,7 @@ const routes: Routes = [
             loadChildren: './categories/new-category/new-category.module#NewCategoryPageModule'
           },
           {
-            path: 'edit/:placeId',
+            path: 'edit/:categoryId',
             loadChildren: './categories/edit-category/edit-category.module#EditCategoryPageModule'
           },
         ]
@@ -40,7 +40,8 @@ const routes: Routes = [
     path: '',
     redirectTo: '/records/tabs/new-record',
     pathMatch: 'full'
-  },  { path: 'edit-category', loadChildren: './categories/edit-category/edit-category.module#EditCategoryPageModule' }
+  },
+  { path: 'edit-category', loadChildren: './categories/edit-category/edit-category.module#EditCategoryPageModule' }
 
 ];
 

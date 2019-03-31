@@ -14,32 +14,27 @@
     }
   ],
   "bill": {
-    "value": 1000,
+    "value": 321312,
     "currency": "EUR"
   },
   "categories": [
     {
-      "name": "Дом",
+      "name": "Home",
       "capacity": 15000,
       "id": 1
     },
     {
-      "name": "Еда",
+      "name": "Food",
       "capacity": 10000,
       "id": 2
     },
     {
-      "name": "Машина",
+      "name": "Car",
       "capacity": 70000,
       "id": 3
-    },
-    {
-      "name": "123",
-      "capacity": 10000,
-      "id": 4
     }
   ],
-  "events": [
+  "records": [
     {
       "id": 1,
       "type": "income",

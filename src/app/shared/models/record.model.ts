@@ -1,4 +1,4 @@
-export class AppEvent {
+export class Record {
   constructor(
     public type: string,
     public amount: number,

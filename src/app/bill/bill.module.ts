@@ -10,7 +10,7 @@ import { BillRoutingModule } from './bill-routing.module';
   imports: [
     CommonModule,
     IonicModule,
-    BillRoutingModule
+    BillRoutingModule,
   ],
   declarations: [BillPage]
 })

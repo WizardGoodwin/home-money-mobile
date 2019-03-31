@@ -9,7 +9,10 @@
 
 <ion-content padding>
   <ion-grid>
-    <ion-row>
+    <ion-row *ngIf="!isLoaded" justify-content-center padding-top>
+      <ion-spinner color="primary"></ion-spinner>
+    </ion-row>
+    <ion-row *ngIf="isLoaded">
       <ion-col size-sm="6" offset-sm="3">
         <ion-list lines="none">
           <ion-item justify-content-center>
