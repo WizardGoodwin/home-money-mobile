@@ -16,6 +16,12 @@
         </div>
 
         <ion-list *ngIf="isLoaded" lines="none">
+          <ion-list-header>
+            <h3>Expenses</h3>
+            <p class="header-text">
+              Total balance: <ion-text color="primary">{{bill.value | number:'1.2-2'}} EU</ion-text>
+            </p>
+          </ion-list-header>
           <div class="planning-item" *ngFor="let category of categories" margin-top>
             <ion-item>
               <div class="progress-outer">
