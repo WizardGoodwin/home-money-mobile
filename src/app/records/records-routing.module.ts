@@ -41,8 +41,6 @@ const routes: Routes = [
     redirectTo: '/records/tabs/new-record',
     pathMatch: 'full'
   },
-  { path: 'edit-category', loadChildren: './categories/edit-category/edit-category.module#EditCategoryPageModule' }
-
 ];
 
 @NgModule({
