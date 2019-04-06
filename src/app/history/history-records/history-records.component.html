@@ -1,0 +1,94 @@
+
+  <ion-grid>
+    <!--start of category select field-->
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Parameter</ion-label>
+          <ion-select name="category" (ionChange)="changeCriteria($event)">
+            <ion-select-option value="amount">
+              Amount
+            </ion-select-option>
+            <ion-select-option value="date">
+              Date
+            </ion-select-option>
+            <ion-select-option value="category">
+              Category
+            </ion-select-option>
+            <ion-select-option value="type">
+              Type
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <!--end of category select field-->
+    <!--start of search field-->
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">{{ searchPlaceholder }}</ion-label>
+          <ion-input
+            name="searchField"
+            [(ngModel)]="searchValue"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <!--end of search field-->
+  </ion-grid>
+
+
+<ion-row class="header-row">
+  <ion-col size="1">
+    <h3><ion-text color="primary">#</ion-text></h3>
+  </ion-col>
+  <ion-col>
+    <h3><ion-text color="primary">Amount</ion-text></h3>
+  </ion-col>
+  <ion-col>
+    <h3 text-center><ion-text color="primary">Date</ion-text></h3>
+  </ion-col>
+  <ion-col>
+    <h3><ion-text color="primary">Category</ion-text></h3>
+  </ion-col>
+  <ion-col>
+    <h3><ion-text color="primary">Type</ion-text></h3>
+  </ion-col>
+</ion-row>
+
+<ion-row *ngIf="!isLoaded" justify-content-center padding-top>
+  <ion-spinner color="primary"></ion-spinner>
+</ion-row>
+
+<ion-row *ngIf="isLoaded">
+  <ion-col>
+    <ion-row
+      *ngFor="let record of records | appFilter:searchValue:searchField; let index = index"
+      class="row"
+      [routerLink]="['/', 'history', 'record-detail', record.id]"
+      detail
+    >
+      <ion-col size="1">
+        <p>{{ index + 1 }}</p>
+      </ion-col>
+      <ion-col>
+        <p text-center class="amount">{{ record.amount | number:'1.0-0' }}</p>
+      </ion-col>
+      <ion-col>
+        <p text-center>{{ record.date | appMoment:'DD.MM.YYYY HH:mm:ss':'DD.MM' }}</p>
+      </ion-col>
+      <ion-col>
+        <p text-center>{{ record.catName }}</p>
+      </ion-col>
+      <ion-col>
+          <ion-badge color="success" *ngIf="record.type === 'income'" margin-top>
+            Income
+          </ion-badge>
+          <ion-badge color="danger" *ngIf="record.type === 'outcome'" margin-top>
+            Outcome
+          </ion-badge>
+      </ion-col>
+    </ion-row>
+  </ion-col>
+</ion-row>

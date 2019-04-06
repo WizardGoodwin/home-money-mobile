@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { BillCurrencyPage } from './bill-currency.page';
-import { MomentPipe } from '../../shared/pipes/moment.pipe';
+import { SharedModule } from '../../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -18,8 +18,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     IonicModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [BillCurrencyPage, MomentPipe]
+  declarations: [BillCurrencyPage]
 })
 export class BillCurrencyPageModule {}

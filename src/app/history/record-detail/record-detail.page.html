@@ -1,9 +1,52 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>record-detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/history"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isLoaded ? 'Record # ' + record.id : 'Loading...' }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row *ngIf="!isLoaded" justify-content-center padding-top>
+      <ion-spinner color="primary"></ion-spinner>
+    </ion-row>
 
+    <ion-row *ngIf="isLoaded">
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-card>
+          <ion-card-header color="{{ record.type === 'income' ? 'success' : 'danger'}}">
+            <ion-card-title>{{record.type === 'income' ? 'Income' : 'Outcome'}}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <p>
+                  Amount: <span> {{record.amount}}</span>
+                </p>
+              </ion-item>
+              <ion-item>
+                <p>
+                  Category: <span> {{category.name}}</span>
+                </p>
+              </ion-item>
+              <ion-item>
+                <p>
+                  Description: <span> {{record.description}}</span>
+                </p>
+              </ion-item>
+
+              <ion-item lines="none">
+                <p>
+                  <span>{{record.date}}</span>
+                </p>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

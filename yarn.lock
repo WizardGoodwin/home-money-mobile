@@ -312,6 +312,13 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@capacitor/core@^1.0.0-beta.19":
+  version "1.0.0-beta.19"
+  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-1.0.0-beta.19.tgz#3b7bbfd1043b623ffb59d0ea030cf1c3b16e442b"
+  integrity sha512-ANpQx+pq0g/fYCTzYWEVZxwkzXqOWviVXl7s/UPAZUdRhAA4S7Iaori+fatvVQnHPhmXy00ezzQidXqiuedpGg==
+  dependencies:
+    tslib "^1.9.0"
+
 "@ionic-native/core@^5.0.0":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-5.3.0.tgz#50934ded237a03489cf45bef3f1d3a7f1a0a71c4"

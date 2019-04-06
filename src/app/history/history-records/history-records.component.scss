@@ -1,0 +1,15 @@
+.header-row {
+  border-bottom: 2px solid var(--ion-color-medium);
+}
+
+.row {
+  border-bottom: 1px solid var(--ion-color-medium);
+}
+
+.row:nth-child(2n) {
+  background-color: var(--ion-color-light);
+}
+
+.amount {
+  color: var(--ion-color-tertiary);
+}

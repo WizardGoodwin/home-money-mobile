@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Filter </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="closeFilter()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content text-center padding>
+    <ion-grid>
+      <!--start of choose period field-->
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Choose period</ion-label>
+            <ion-select [(ngModel)]="selectedPeriod">
+              <ion-select-option *ngFor="let p of timePeriods" [value]="p.type">
+                {{p.label}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--end of choose period field-->
+      <!--start of choose type field-->
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-list>
+            <ion-list-header>
+              <ion-label>Choose type</ion-label>
+            </ion-list-header>
+            <ion-item *ngFor="let t of types">
+              <ion-label>{{t.label}}</ion-label>
+              <ion-checkbox
+                slot="end"
+                [value]="t.type"
+                (ionChange)="handleChangeType($event.target)"
+              ></ion-checkbox>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <!--end of choose type field-->
+      <!--start of choose category field-->
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-list>
+            <ion-list-header>
+              <ion-label>Choose type</ion-label>
+            </ion-list-header>
+            <ion-item *ngFor="let c of categories">
+              <ion-label>{{c.name}}</ion-label>
+              <ion-checkbox
+                slot="end"
+                [value]="c.id"
+                (ionChange)="handleChangeCategory($event.target)"
+              ></ion-checkbox>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <!--end of choose category field-->
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-button
+            color="primary"
+            expand="block"
+            (click)="applyFilter()"
+          >
+            Apply
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

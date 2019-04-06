@@ -17,7 +17,7 @@ export class FilterPipe implements PipeTransform {
       }
 
       if (field === 'type') {
-        t[field] = t[field] === 'income' ? 'доход' : 'расход';
+        t[field] = t[field] === 'income' ? 'income' : 'outcome';
       }
 
       if (field === 'category') {

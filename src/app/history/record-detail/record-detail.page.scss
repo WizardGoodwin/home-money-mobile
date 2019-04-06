@@ -1,0 +1,16 @@
+ion-item p {
+  font-size: 18px;
+
+  span {
+    font-weight: 400;
+    color: var(--ion-color-primary);
+    margin-left: 10px;
+  }
+}
+
+ion-item:last-child p {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding-top: 30px;
+}
