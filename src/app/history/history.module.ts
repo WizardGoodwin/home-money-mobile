@@ -10,6 +10,7 @@ import { HistoryRecordsComponent } from './history-records/history-records.compo
 import { SharedModule } from '../shared/shared.module';
 import { FilterPipe } from '../shared/pipes/filter.pipe';
 import { HistoryFilterComponent } from './history-filter/history-filter.component';
+import { HistoryChartComponent } from './history-chart/history-chart.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,13 @@ import { HistoryFilterComponent } from './history-filter/history-filter.componen
     SharedModule,
     HistoryRoutingModule
   ],
-  declarations: [HistoryPage, HistoryRecordsComponent, HistoryFilterComponent, FilterPipe],
+  declarations: [
+    HistoryPage,
+    HistoryRecordsComponent,
+    HistoryFilterComponent,
+    HistoryChartComponent,
+    FilterPipe
+  ],
   entryComponents: [HistoryFilterComponent]
 })
 export class HistoryPageModule {}

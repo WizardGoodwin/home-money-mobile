@@ -44,7 +44,7 @@ export class HistoryPage implements OnInit, OnDestroy {
       });
 
       this.setOriginalRecords();
-      //this.calculateChartData();
+      this.calculateChartData();
 
       this.isLoaded = true;
     });
@@ -52,6 +52,23 @@ export class HistoryPage implements OnInit, OnDestroy {
 
   private setOriginalRecords() {
     this.filteredRecords = this.records.slice();
+  }
+
+  calculateChartData(): void {
+    this.chartData = [];
+    this.categories.forEach(category => {
+      const catRecord = this.filteredRecords
+        .filter(record => {
+          return record.category === category.id && record.type === 'outcome'
+        });
+      this.chartData.push({
+        name: category.name,
+        value: catRecord.reduce((total, record) => {
+          total += record.amount;
+          return total;
+        }, 0)
+      });
+    });
   }
 
   openFilter() {
@@ -92,12 +109,12 @@ export class HistoryPage implements OnInit, OnDestroy {
         return momentDate.isBetween(startPeriod, endPeriod);
       });
 
-    //this.calculateChartData();
+    this.calculateChartData();
   }
 
   onFilterCancel() {
     this.setOriginalRecords();
-    //this.calculateChartData();
+    this.calculateChartData();
   }
 
   ngOnDestroy() {

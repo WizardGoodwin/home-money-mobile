@@ -14,6 +14,16 @@
 
 <ion-content>
   <ion-grid>
+    <ion-row *ngIf="!isLoaded" justify-content-center padding-top>
+      <ion-spinner color="primary"></ion-spinner>
+    </ion-row>
+    <ion-row *ngIf="isLoaded">
+      <ion-col size-sm="6" offset-sm="3">
+        <app-history-chart
+          [data]="chartData"
+        ></app-history-chart>
+      </ion-col>
+    </ion-row>
     <ion-row>
       <ion-col size-sm="6" offset-sm="3">
         <app-history-records
