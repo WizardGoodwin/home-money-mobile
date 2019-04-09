@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+
+import { Category } from '../../shared/models/category.model';
 
 @Component({
   selector: 'app-history-filter',
@@ -7,6 +9,8 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./history-filter.component.scss'],
 })
 export class HistoryFilterComponent implements OnInit {
+
+  @Input() categories: Category[] = [];
 
   selectedPeriod = 'd';
   selectedTypes = [];

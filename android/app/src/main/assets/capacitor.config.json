@@ -1,0 +1,6 @@
+{
+  "appId": "mobile.home.money",
+  "appName": "mobile-home-money",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

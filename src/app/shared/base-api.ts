@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class BaseApi {
-  private baseUrl = 'http://localhost:3001/';
+  private baseUrl = 'https://home-money-api.herokuapp.com/';
 
   constructor(public http: HttpClient) {}
 
