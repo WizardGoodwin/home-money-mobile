@@ -9,13 +9,13 @@ and techniques for working with hybrid apps.
 
 ## Technologies and Libs
 
-Angular 7.2.2
-Ionic 4.1
-Capacitor - access to native mobile functions
-rxjs - handling async operations
-moment - formatting date and time
-ngx-charts - creating diagrams
-json-server - API imitation
+- Angular 7.2.2
+- Ionic 4.1
+- Capacitor - access to native mobile functions
+- rxjs - handling async operations
+- moment - formatting date and time
+- ngx-charts - creating diagrams
+- json-server - API imitation
 
 
 ## Implemented functionality
